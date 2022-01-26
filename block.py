@@ -1,27 +1,23 @@
 import datetime as dt
 import hashlib
 
-sender = str(input("Qual o seu nome?"))
-amount = str(input("Quantos Bitcoins você quer transferir?"))
-recipient = str(input("Para quem você quer transferir?"))
-
-transaction = sender + " transferiu: " + amount + " Bitcoin(s) para " + recipient
-
 class block:
-    def __init__(self, transactions):
+    def __init__(self, transactions, prevHash):
         self.timestamps = dt.datetime.now() #Quando foi criado o bloco
         self.transactions = transactions
-        #prevHash
+        self.prevHash = prevHash
         self.hash = self.generateHash()
         #index
         #nonce
 
     def generateHash(self):
-        blockData = str(self.transactions) + str(self.timestamps)
+        blockData = str(self.transactions) + str(self.timestamps) + str(self.prevHash)
         hashBlock = hashlib.sha256(blockData.encode()).hexdigest() 
         return hashBlock
-        
 
-block1 = block(transaction)
-
-print(block1.transactions, block1.timestamps, block1.hash)
+    def showBlock(self):
+        print("Informações do bloco")
+        print("Data de criação: ", str(self.timestamps))
+        print("Transações: ", str(self.transactions))
+        print("Hash atual: ", str(self.hash))
+        print("Hash Anterior: ", str(self.prevHash), "\n")
