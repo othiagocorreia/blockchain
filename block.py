@@ -1,23 +1,21 @@
 import datetime as dt
 import hashlib
 
-class block:
+class Block():
     def __init__(self, transactions, prevHash):
-        self.timestamps = dt.datetime.now() #Quando foi criado o bloco
         self.transactions = transactions
+        self.timestamps = dt.datetime.now()
         self.prevHash = prevHash
-        self.hash = self.generateHash()
-        #index
         #nonce
+        self.hash = self.generateHash()
 
     def generateHash(self):
         blockData = str(self.transactions) + str(self.timestamps) + str(self.prevHash)
-        hashBlock = hashlib.sha256(blockData.encode()).hexdigest() 
-        return hashBlock
+        blockHash = hashlib.sha256(blockData.encode()).hexdigest()
+        return blockHash
 
     def showBlock(self):
-        print("Informações do bloco")
-        print("Data de criação: ", str(self.timestamps))
-        print("Transações: ", str(self.transactions))
-        print("Hash atual: ", str(self.hash))
-        print("Hash Anterior: ", str(self.prevHash), "\n")
+        print("Transações: ", self.transactions)
+        print("Hora e Data: ", self.timestamps)
+        print("Hash do bloco: ", self.hash)
+        print("Hash Anterior: ", self.prevHash)
