@@ -1,33 +1,27 @@
-from block import block
+from block import Block
 
-sender = str(input("Qual o seu nome?"))
-amount = str(input("Quantos Bitcoins você quer transferir?"))
-recipient = str(input("Para quem você quer transferir?"))
+t1 = "Thiago transferiu: 15 Bitcoin(s) para Thiago"
 
-transaction = sender + " transferiu:" + amount + " Bitcoin(s) para " + recipient 
-
-class chain:
+class Chain:
     def __init__(self):
         self.chain = []
         self.allTransactions = []
         self.genesisBlock()
 
     def genesisBlock(self):
-        transactions = []
+        transactions = t1
         previousHash = 0
-        self.chain.append(block(transactions, previousHash))
-
+        self.chain.append(Block(transactions, previousHash))
+    
     def addBlock(self, transactions):
-        previousBlockHash = self.chain[len(self.chain)-1].hash
-        newBlock = block(transactions, previousBlockHash)
-        self.chain.append(newBlock) 
-    
-    def printBlocks(self):
+        previousHash = self.chain[len(self.chain)-1].hash
+        newBlock = Block(transactions, previousHash)
+        self.chain.append(newBlock)
+
+    def showBlocks(self):
         for i in range(len(self.chain)):
-            current_block = self.chain[i]
-            print("Block {}".format(i))
-            current_block.showBlock()
+            currentBlock = self.chain[i]
+            print("\nInformações do Bloco {}".format(i), "\n")
+            currentBlock.showBlock()
     
-Blockchain = chain()    
-Blockchain.addBlock(transaction)
-Blockchain.printBlocks()
+Blockchain = Chain()
