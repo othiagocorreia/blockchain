@@ -1,11 +1,16 @@
 from chain import Blockchain
 
-sender = str(input("Qual o seu nome?"))
-amount = str(input("Quantos Bitcoins você quer transferir?"))
-recipient = str(input("Para quem você quer transferir?"))
+blocos = int(input("Quantos blocos você quer criar?"))
 
-transaction = sender + " transferiu: " + amount + " Bitcoin(s) para " + recipient 
+i = 0
+while(i<blocos):
+    sender = str(input("Qual o seu nome?"))
+    amount = str(input("Quantos Bitcoins você quer transferir?"))
+    recipient = str(input("Para quem você quer transferir?"))
 
+    transaction = sender + " transferiu: " + amount + " Bitcoin(s) para " + recipient
 
-Blockchain.addBlock(transaction)
+    Blockchain.addBlock(transaction)
+    i += 1
+
 Blockchain.showBlocks()
