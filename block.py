@@ -16,7 +16,6 @@ class Block():
             blockData = str(self.transactions) + str(self.timestamps) + str(self.prevHash) + str(self.nonce)
             blockHash = hashlib.sha256(blockData.encode()).hexdigest()
             self.nonce += 1
-        return blockHash
 
     def showBlock(self):
         print("Transações: ", self.transactions)
