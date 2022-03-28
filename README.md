@@ -8,8 +8,8 @@ This project was made for me to learn about how blockchain and cryptocoins work
 
 # 👾 Technologies
 
-* [NodeJS](https://nodejs.org/en/)
-* [JSONWebToken](https://jwt.io/)
+* [Blockchain](https://www.blockchain.com/)
+* [Python](https://www.python.org/)
 
 # 🔒 Status
 🧱 Still in progress... 🧱
