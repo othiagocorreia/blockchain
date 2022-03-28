@@ -1,4 +1,4 @@
-<h1 align="center">AUTH API �⛓️</h1>
+<h1 align="center">Blockchain ⛓️</h1>
 
 <h4 align="init">A basic blockchain written in Python</h4>
 
